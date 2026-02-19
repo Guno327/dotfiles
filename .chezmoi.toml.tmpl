@@ -1,10 +1,4 @@
-{{ $passphrase := promptStringOnce . "passphrase" "passphrase" -}}
-
-encryption = "gpg"
-[add]
-    encrypt = true
-[data]
-    passphrase = {{ $passphrase | quote }}
-[gpg]
-    symmetric = true
-    args = ["--quiet", "--batch", "--passphrase", {{ $passphrase | quote }}, "--no-symkey-cache"]
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age13rvwvmmyuctpemwja36w4sgqssreatq3duwjnnkkzwrguw54yfvsefvel4"
